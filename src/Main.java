@@ -1,17 +1,49 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        ArrayList<String> ListA = new ArrayList<>();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        for (int i = 0; i < 5; i++) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите имя №" + (i + 1) + " Для списка А:");
+            String names = scanner.nextLine();
+            System.out.println("Имя ушпешно добавлено в Список А");
+            System.out.println("   ");
+
+
+            ListA.add(names);
         }
+        System.out.println("Ваш список А: " + ListA);
+        System.out.println("-------------------------");
+
+        ArrayList<String> ListB = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите имя №" + (i + 1) + " Для списка Б:");
+            String names = scanner.nextLine();
+            System.out.println("Имя успешно добавлено в Список Б");
+            System.out.println("   ");
+
+            ListB.add(names);
+        }
+        System.out.println("Ваш список Б: " + ListB);
+        System.out.println("----------------------------");
+
+        ArrayList<String> ListC = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            ListC.add(ListA.get(i));
+            ListC.add(ListB.get(4 - i));
+        }
+        System.out.println("Ваш список С: " + ListC);
+
+        Collections.sort(ListC, Comparator.comparing(String::length));
+
+        System.out.println("Ваш отсортированный Список С: " + ListC);
+
     }
+
+
 }
